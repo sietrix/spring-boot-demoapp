@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuadrado</title>
+</head>
+<body>
+<!--Cuadrado: lee dos números y comprueba si el segundo es el cuadrado del primero-->
+
+<!-- Hay que declarar un th:object en el formulario con el mismo nombre que
+el tipo del modelo del formulario (UserData) cambiando la mayúscula de
+la primera letra por minúscula (userData) -->
+<form th:action="@{/cuadrado}" th:object="${numeroEntero}" method="post">
+    <div>
+        Numero:
+        <label>
+            <input type="text" th:field="*{numero}"/>
+        </label>
+        <!-- <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>-->
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>
