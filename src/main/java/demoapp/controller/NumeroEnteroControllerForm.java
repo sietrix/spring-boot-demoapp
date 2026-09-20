@@ -4,6 +4,7 @@ import demoapp.service.NumeroEnteroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,19 +19,16 @@ public class NumeroEnteroControllerForm {
 
     @GetMapping("/cuadrado")
     public String cuadradoForm(NumeroEntero numeroEntero) {
-        return "cuadrado";
+        return "formCuadrado";
     }
 
     @PostMapping("/cuadrado")
-    public String checkPersonInfo(@ModelAttribute @Valid NumeroEntero numeroEntero, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "formRegistro";
-//        }
+    public String checkPersonInfo(@ModelAttribute @Valid NumeroEntero numeroEntero, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "formCuadrado";
+        }
         model.addAttribute("numero", numeroEntero.getNumero());
         model.addAttribute("resultado", service.cuadradoDeUnNumero(numeroEntero.getNumero()));
-        return "resultadocuadrado";
+        return "resultadoCuadrado";
     }
-
-
-
 }

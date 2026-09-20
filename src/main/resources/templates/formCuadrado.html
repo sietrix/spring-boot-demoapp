@@ -9,15 +9,15 @@
 <!--Cuadrado: lee dos números y comprueba si el segundo es el cuadrado del primero-->
 
 <!-- Hay que declarar un th:object en el formulario con el mismo nombre que
-el tipo del modelo del formulario (UserData) cambiando la mayúscula de
-la primera letra por minúscula (userData) -->
+el tipo del modelo del formulario (NumeroEntero) cambiando la mayúscula de
+la primera letra por minúscula (numeroEntero) -->
 <form th:action="@{/cuadrado}" th:object="${numeroEntero}" method="post">
     <div>
         Numero:
         <label>
-            <input type="text" th:field="*{numero}"/>
+            <input type="number" th:field="*{numero}"/>
         </label>
-        <!-- <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>-->
+         <div th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></div>
     </div>
     <button type="submit">Enviar</button>
 </form>
