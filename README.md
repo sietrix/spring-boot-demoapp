@@ -36,7 +36,7 @@ https://hub.docker.com/r/sietrix/spring-boot-demoapp
 
 Para descargalar
 ```
-docker pull sietrix/spring-boot-demoapp
+docker pull sietrix/spring-boot-demoapp:final
 ```
 
 
